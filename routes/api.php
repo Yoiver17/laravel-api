@@ -33,3 +33,4 @@ Route::post("/creategame", [VideoJuegoController::class,"create"]);
 Route::get("/listar-equipos", [EquiposController::class,"getAll"]);
 Route::put("/actulizar-equipo/{equipo}", [EquiposController::class,"update"]);
 Route::delete("/eliminar-equipo/{equipo}", [EquiposController::class,"destroy"]);
+Route::put("/actualizar-jugador/{jugador}", [JugadoresController::class,"update"]);

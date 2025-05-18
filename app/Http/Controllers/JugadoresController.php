@@ -9,7 +9,7 @@ class JugadoresController extends Controller
 {
     public function create(Request $request){
         Jugadores::create([
-            "id_jugador" => $request->id_jugador,
+          
         "nombre" => $request->nombre,
         "nickname" => $request->nickname,
         "correo" => $request->correo,
@@ -18,6 +18,20 @@ class JugadoresController extends Controller
         return response()->json([
             "message" => "Guardado exitosamente"
         ],201);
+    }
+
+    public function update(Request $request, Jugadores $jugador){
+        $jugador->update([ 
+        "nombre" => $request->nombre,
+        "nickname" => $request->nickname,
+        "correo" => $request->correo,
+        "pais" => $request->pais,
+        ]);  
+        return response()->json([
+            "message" => "Actualizado exitosamente"
+        ],200);
+
+
     }
     
 }
