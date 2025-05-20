@@ -20,6 +20,14 @@ class JugadoresController extends Controller
         ],201);
     }
 
+    public function getAll(Jugadores $request){
+        return response()->json([
+            "data" => $request->get(),
+            "message" => "Consulta exitosa"
+        ],200);
+    }
+
+
     public function update(Request $request, Jugadores $jugador){
         $jugador->update([ 
         "nombre" => $request->nombre,
@@ -32,6 +40,14 @@ class JugadoresController extends Controller
         ],200);
 
 
+    }
+
+     public function destroy( Jugadores $jugador) {
+        $jugador->delete();
+         return response()->json([
+            "message" => "Jugador eliminado Exitosamente!"
+        ], 200);
+     
     }
     
 }

@@ -9,7 +9,7 @@ class Modalidad extends Model
     protected $primaryKey = "modalidad_id";
     protected $fillable =[
             "modalidad_id",
-            "nombre",
+            "nombre"
     ];
 
     public function videojuegos(){

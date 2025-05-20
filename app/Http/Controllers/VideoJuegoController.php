@@ -22,4 +22,33 @@ class VideoJuegoController extends Controller
         "message" => "Guardado exitosamente"
         ],201);
     }
+
+    public function getAll(VideoJuego $request){
+        return response()->json([
+            "data" => $request->get(),
+            "message" => "Consulta exitosa"
+        ],200);
+    }
+
+     public function update(Request $request, VideoJuego $videojuego){
+        $videojuego->nombre = $request->nombre;
+        $tipo = TipoVideojuego::find($request->tipo_id);
+        $videojuego->tipo()->associate($tipo);
+        $videojuego->save();
+       
+       $videojuego->modalidades()->attach( [$request->modalidadId]);
+       $videojuego->save();
+       return response()->json([
+        "message" => "Actualizado exitosamente"
+        ],201);
+    }
+    
+     public function destroy( VideoJuego $videojuego) {
+        $videojuego->delete();
+         return response()->json([
+            "message" => "Video juego eliminado Exitosamente!"
+        ], 200);
+     
+    }
+
 }

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::table("torneos", function (Blueprint $table) {
             $table->bigInteger("videojuego_id")->unsigned()
-            ->nullable()->after("id");
+            ->nullable()->after("id_torneo");
 
-            $table->foreign("videojuego_id")->references("id")->on("video_juegos")
+            $table->foreign("videojuego_id")->references("videojuego_id")->on("video_juegos")
             ->onUpdate("cascade")->onDelete("set null");
         });
     }

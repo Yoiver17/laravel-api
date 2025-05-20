@@ -31,18 +31,6 @@ use Illuminate\Http\Request;
         ], 201);
     }
 
-    public function createWithtorneo(Request $request, $idtorneo){
-        $torneo = Torneo::find($idtorneo);
-        $equipo = new Equipos();
-        $equipo->equipo_id = $request->equipo_id;
-        $equipo->nombre = $request->nombre;
-        $equipo->lider_id = $request->lider_id;
-      
-        return response()->json([
-            "message"=> "Equipo asignado a un torneo exitosamente"
-        ],201);
-    }
-
     public  function getAll(){
         $equipos = Equipos::with('jugadores')->get();
         return response()->json([

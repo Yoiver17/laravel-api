@@ -25,22 +25,26 @@ class TorneoController extends Controller
         ], 201);
     }
 
-    public function createWithGame(Request $request, $idVideoJuego){
-        
-        $videojuego = VideoJuego::find($idVideoJuego);
-        $torneo = new Torneo();
-        $torneo->nombre = $request->nombre;
-        $torneo->premio = $request->premio;
-        $torneo->fecha_inicio = $request->fecha_inicio;
-        $torneo->fecha_fin = $request->fecha_fin;
-        $torneo->limite_equipos = $request->limite_equipos;
-        $torneo->modalidad = $request->modalidad;
-       
-        $torneo->save();
+    public function update(Request $request, Torneo $torneo){
+        $torneo->update([ 
+            "nombre" => $request->nombre,
+            "premio" => $request->premio,
+            "fecha_inicio"=> $request->fecha_inicio,
+            "fecha_fin"=> $request->fecha_fin,
+            "limite_equipos" => $request->limite_equipos,
+            "modalidad" => $request->modalidad,
+        ]);  
         return response()->json([
-            "message"=> "Torneo creado con video juego exitosamente"
-            ],201);
+            "message" => "Actualizado exitosamente"
+        ],200);
+    }
 
+    public function destroy( Torneo $torneo) {
+        $torneo->delete();
+         return response()->json([
+            "message" => "Tipo de video juego eliminado Exitosamente!"
+        ], 200);
+     
     }
 
     public function index() {

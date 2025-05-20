@@ -9,8 +9,7 @@ class TipoVideojuegoController extends Controller
 {
     public function create(Request $request){
         TipoVideojuego::create([
-            "tipo_id" => $request->tipo_id,
-            "videojuego_id" => $request->videjuego_id,
+            
             "tipo" => $request->tipo,
         ]);
         
@@ -19,7 +18,32 @@ class TipoVideojuegoController extends Controller
         ],201   );
     }
 
-    
+    public function getAll(TipoVideojuego $request){
+        return response()->json([
+            "data" => $request->get(),
+            "message" => "Consulta exitosa"
+        ],200);
+    }
+
+    public function update(Request $request, TipoVideojuego $videojuego){
+        $videojuego->update([ 
+        "tipo" => $request->tipo
+        ]);  
+        return response()->json([
+            "message" => "Actualizado exitosamente"
+        ],200);
+
+
+    }
+
+    public function destroy( TipoVideojuego $videojuego) {
+        $videojuego->delete();
+         return response()->json([
+            "message" => "Tipo de video juego eliminado Exitosamente!"
+        ], 200);
+     
+    }
+
     
     
 }

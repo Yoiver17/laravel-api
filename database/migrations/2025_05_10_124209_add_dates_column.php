@@ -12,10 +12,8 @@ return new class extends Migration
     public function up(): void
     {
        Schema::table("torneos", function (Blueprint $table) {
-            $table->date("fecha_inicio")->unsigned()
-            ->nullable()->after("premio");
-            $table->date("fecha_fin")->unsigned()
-            ->nullable()->after("fecha_inicio");
+            $table->date("fecha_inicio")->after("premio");
+            $table->date("fecha_fin")->after("fecha_inicio");
     });
     }
 
