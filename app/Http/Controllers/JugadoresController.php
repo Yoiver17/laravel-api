@@ -16,7 +16,7 @@ class JugadoresController extends Controller
         "pais" => $request->pais,
         ]);  
         return response()->json([
-            "message" => "Guardado exitosamente"
+     "message" => "Guardado exitosamente"
         ],201);
     }
 

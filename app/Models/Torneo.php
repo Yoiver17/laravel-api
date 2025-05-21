@@ -22,4 +22,7 @@ class Torneo extends Model
     public function equipos(){
         return $this->belongsToMany(Equipos::class,"equipo_torneo","id_torneo", "equipo_id");
     }
+    public function resultado(){
+        return $this->belongsToMany(resultados_torneo::class,"resultados_torneo","id_torneo","resultados_id");
+    }
 }
