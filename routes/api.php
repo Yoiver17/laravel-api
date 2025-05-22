@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ResultadosTorneoController;
 use App\Http\Controllers\EquiposController;
 use App\Http\Controllers\JugadoresController;
 use App\Http\Controllers\ModalidadController;
@@ -44,3 +45,6 @@ Route::delete("/eliminar-tipo/{videojuego}",[TipoVideojuegoController::class,"de
 Route::post("/creategame", [VideoJuegoController::class,"create"]);
 Route::put("/actualizar-videojuego/{videojuego}",[VideoJuegoController::class,"update"]);
 Route::delete("/eliminar-videojuego/{videojuego}",[VideoJuegoController::class,"destroy"]);
+Route::post("/crear-resultado",[ResultadosTorneoController::class,"create"]);
+Route::get("/obtener-resultado/{resultado}",[ResultadosTorneoController::class,"show"]);
+Route::delete("/eliminar-resultado/{resultado}",[ResultadosTorneo::class,"show"]);

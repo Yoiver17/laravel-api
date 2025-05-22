@@ -10,8 +10,10 @@ class Torneo extends Model
         protected $fillable = [
         "id_torneo",
         "nombre", 
+         "premio",
+         "fecha_inicio",
+         "fecha_fin",
         "videojuego_id",
-        "premio",
         "limite_equipos",
         "modalidad"
     ];
@@ -23,6 +25,6 @@ class Torneo extends Model
         return $this->belongsToMany(Equipos::class,"equipo_torneo","id_torneo", "equipo_id");
     }
     public function resultado(){
-        return $this->belongsToMany(resultados_torneo::class,"resultados_torneo","id_torneo","resultados_id");
+        return $this->belongsTo(ResultadosTorneo::class,"resultados_torneo","id_torneo","resultados_id");
     }
 }
