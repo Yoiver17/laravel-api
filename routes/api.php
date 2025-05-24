@@ -46,5 +46,5 @@ Route::post("/creategame", [VideoJuegoController::class,"create"]);
 Route::put("/actualizar-videojuego/{videojuego}",[VideoJuegoController::class,"update"]);
 Route::delete("/eliminar-videojuego/{videojuego}",[VideoJuegoController::class,"destroy"]);
 Route::post("/crear-resultado",[ResultadosTorneoController::class,"create"]);
-Route::get("/obtener-resultado/{resultado}",[ResultadosTorneoController::class,"show"]);
+Route::get("/obtener-resultado",[ResultadosTorneoController::class,"getAll"]);
 Route::delete("/eliminar-resultado/{resultado}",[ResultadosTorneo::class,"show"]);

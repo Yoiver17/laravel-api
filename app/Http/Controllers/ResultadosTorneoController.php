@@ -40,6 +40,15 @@ class ResultadosTorneoController extends Controller
         ]);
     }
 
+        public  function getAll(){
+        $resultado = ResultadosTorneo::with('torneo','equipo','modalidad')->get();
+        return response()->json([
+            "data" => $resultado, 
+            "message" => "Consulta exitosa"
+        ],200);
+    }
+
+
     public function destroy( ResultadosTorneo $resultado) {
         $resultado->delete();
          return response()->json([
