@@ -54,13 +54,14 @@ class TorneoController extends Controller
         ]);
     }
 
-    public function show(Torneo $torneo) {
-        return response()->json([
-            "data" => $torneo->load(['videojuego', 'equipos.jugadores']),
-            "message" => "Torneo obtenido exitosamente"
-        ]);
-    }
+    public function getAll(){
+    $torneo = Torneo::with(['videojuego'])->get();
 
+    return response()->json([
+        "data" => $torneo,
+        "message" => "Consulta exitosa"
+    ], 200);
+}
     
 
 }

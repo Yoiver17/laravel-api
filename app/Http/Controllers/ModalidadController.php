@@ -10,7 +10,7 @@ class ModalidadController extends Controller
     
     public function create(Request $request){
         Modalidad::create([
-            "modalidad_id" => $request->modalidad_id,
+          
             "nombre" => $request->nombre
         ]);
         return response()->json([
