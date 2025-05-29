@@ -25,6 +25,8 @@ Route::post("/create-tournament", [TorneoController::class, 'create']);
 
 Route::post("/create-tournament/{videojuego}", [TorneoController::class, 'createWithGame']);
 Route::get("tournament/{torneo}", [TorneoController::class, "show"]);
+Route::put("/actualizar-torneo/{torneo}",[TorneoController::class,"update"]);
+Route::delete("/eliminar-torneo/{torneo}",[TorneoController::class, "destroy"]);
 Route::post("/equipos",[TorneoController::class,'create']);
 Route::post("/crearequipos", [EquiposController::class,"create"]);
 Route::post("/crearjugador", [JugadoresController::class,"create"]);
@@ -45,6 +47,7 @@ Route::delete("/eliminar-tipo/{videojuego}",[TipoVideojuegoController::class,"de
 Route::post("/creategame", [VideoJuegoController::class,"create"]);
 Route::put("/actualizar-videojuego/{videojuego}",[VideoJuegoController::class,"update"]);
 Route::delete("/eliminar-videojuego/{videojuego}",[VideoJuegoController::class,"destroy"]);
+Route::get("/listar-videojuegos",[VideoJuegoController::class,"getAll"]);
 Route::post("/crear-resultado",[ResultadosTorneoController::class,"create"]);
 Route::get("/obtener-resultado",[ResultadosTorneoController::class,"getAll"]);
 Route::delete("/eliminar-resultado/{resultado}",[ResultadosTorneo::class,"show"]);

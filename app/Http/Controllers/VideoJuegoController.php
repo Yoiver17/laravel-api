@@ -23,12 +23,15 @@ class VideoJuegoController extends Controller
         ],201);
     }
 
-    public function getAll(VideoJuego $request){
-        return response()->json([
-            "data" => $request->get(),
-            "message" => "Consulta exitosa"
-        ],200);
-    }
+    public function getAll()
+{
+    $videojuegos = VideoJuego::with(['tipo', 'modalidades'])->get();
+
+    return response()->json([
+        "data" => $videojuegos,
+        "message" => "Consulta exitosa"
+    ], 200);
+}
 
      public function update(Request $request, VideoJuego $videojuego){
         $videojuego->nombre = $request->nombre;
