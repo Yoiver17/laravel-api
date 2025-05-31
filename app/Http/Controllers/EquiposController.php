@@ -32,7 +32,7 @@ use Illuminate\Http\Request;
     }
 
     public  function getAll(){
-        $equipos = Equipos::with('jugadores')->get();
+        $equipos = Equipos::with('jugadores', 'torneos')->get();
         return response()->json([
             "data" => $equipos, 
             "message" => "Consulta exitosa"

@@ -22,8 +22,6 @@ Route::get('/sena', function (Request $request) {
 });
 
 Route::post("/create-tournament", [TorneoController::class, 'create']);
-
-Route::post("/create-tournament/{videojuego}", [TorneoController::class, 'createWithGame']);
 Route::get("/listar-torneos", [TorneoController::class, "getAll"]);
 Route::put("/actualizar-torneo/{torneo}",[TorneoController::class,"update"]);
 Route::delete("/eliminar-torneo/{torneo}",[TorneoController::class, "destroy"]);
